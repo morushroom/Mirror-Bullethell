@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="effect" sid="194507547090904" static="0" type="number">0</variable>
+        <variable constant="0" name="BossHP" sid="812136955881173" static="0" type="number">100</variable>
+        <event-group description="" sid="905645613894153" title="movement">
+            <sub-events>
+                <event-group description="" sid="805036012153059" title="lose">
+                    <sub-events>
+                        <event-block sid="284836635995346">
+                            <conditions>
+                                <condition id="0" name="В столкновении с другим объектом" sid="867429043014689" type="green">
+                                    <param id="0" name="Объект">bullet</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="240643731843536" type="bullet">
+                                    <param id="0" name="Instance variable">deadly</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-26" name="Restart layout" sid="724989191933551" type="System" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block any="1" sid="927863775308195">
+                    <conditions>
+                        <condition id="2" name="Клавиша нажата" sid="879811940422361" type="Keyboard">
+                            <param id="0" name="Клавиша">39</param>
+                        </condition>
+                        <condition id="2" name="Клавиша нажата" sid="280485959460090" type="Keyboard">
+                            <param id="0" name="Клавиша">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Платформа" id="7" name="Установить управление" sid="377997038049219" type="green">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="311513285798334">
+                    <conditions>
+                        <condition id="2" name="Клавиша нажата" sid="155716513195385" type="Keyboard">
+                            <param id="0" name="Клавиша">37</param>
+                        </condition>
+                        <condition id="2" name="Клавиша нажата" sid="150065624987025" type="Keyboard">
+                            <param id="0" name="Клавиша">65</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Платформа" id="7" name="Установить управление" sid="847215628151559" type="green">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="840951996836957">
+                    <conditions>
+                        <condition id="0" name="Клавиша нажата" sid="404879548451151" type="Keyboard">
+                            <param id="0" name="Клавиша">88</param>
+                        </condition>
+                        <condition id="0" name="Клавиша нажата" sid="940415553768219" type="Keyboard">
+                            <param id="0" name="Клавиша">90</param>
+                        </condition>
+                        <condition id="0" name="Клавиша нажата" sid="665374633233659" type="Keyboard">
+                            <param id="0" name="Клавиша">32</param>
+                        </condition>
+                        <condition id="0" name="Клавиша нажата" sid="888829254745615" type="Keyboard">
+                            <param id="0" name="Клавиша">40</param>
+                        </condition>
+                        <condition id="0" name="Клавиша нажата" sid="569041697872473" type="Keyboard">
+                            <param id="0" name="Клавиша">83</param>
+                        </condition>
+                        <condition id="0" name="Клавиша нажата" sid="689717747710384" type="Keyboard">
+                            <param id="0" name="Клавиша">38</param>
+                        </condition>
+                        <condition id="0" name="Клавиша нажата" sid="141459303474067" type="Keyboard">
+                            <param id="0" name="Клавиша">87</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Платформа" id="9" name="Задать вектор Y" sid="333632036521886" type="green">
+                            <param id="0" name="Вектор Y">-600</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="901965480032596" type="System">
+                            <param id="0" name="Object to create">bullet</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="X">green.X</param>
+                            <param id="3" name="Y">green.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="563704682208199" title="bullet">
+            <sub-events>
+                <event-block sid="944392973723497">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="858684949768232" type="bullet" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="547969606829811" type="bullet">
+                            <param id="0" name="Instance variable">deadly</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action behavior="Пуля" id="3" name="Задать угол движения" sid="620978359694406" type="bullet">
+                            <param id="0" name="Угол">90</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="795509232519519" type="System">
+                            <param id="0" name="Seconds">0.2</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="948987524492563" type="bullet">
+                            <param id="0" name="Instance variable">deadly</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="571580300342756">
+            <conditions>
+                <condition behavior="Твердый" id="0" name="Is enabled" sid="557296063621721" type="TiledBackground" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="346687998288517" type="System">
+                    <param id="0" name="Seconds">10</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="297926038163118">
+                    <conditions>
+                        <condition id="-3" name="Is on-screen" sid="555675708127209" type="bullet" />
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="125101635011654" type="TiledBackground">
+                            <param id="0" name="Opacity">50</param>
+                        </action>
+                        <action behavior="Твердый" id="0" name="Set enabled" sid="959677853579847" type="TiledBackground">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="800076629113646">
+            <conditions>
+                <condition id="-3" name="Is on-screen" sid="683720323669117" type="bullet" />
+                <condition behavior="Твердый" id="0" inverted="1" name="Is enabled" sid="285747464685763" type="TiledBackground" />
+            </conditions>
+            <actions>
+                <action behavior="Твердый" id="0" name="Set enabled" sid="661930207885047" type="TiledBackground">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="527112647677186" type="TiledBackground">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="143710379385491">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="169653496045672" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Набор текста" sid="930188181623615" type="bosshp">
+                    <param id="0" name="Текст">&quot;Boss: &quot; &amp; BossHP</param>
+                </action>
+                <action id="-32" name="Set layer effect parameter" sid="629507433040677" type="System">
+                    <param id="0" name="Layer">0</param>
+                    <param id="1" name="Effect">&quot;Пульс&quot;</param>
+                    <param id="2" name="Parameter index">0</param>
+                    <param id="3" name="Value">effect</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="718277229297355">
+            <conditions>
+                <condition id="0" name="В столкновении с другим объектом" sid="112012536029327" type="bullet">
+                    <param id="0" name="Объект">bosscollision</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="994180088531993" type="System">
+                    <param id="0" name="Variable">BossHP</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-30" name="Set layer effect enabled" sid="701452010185769" type="System">
+                    <param id="0" name="Layer">0</param>
+                    <param id="1" name="Mode">1</param>
+                    <param id="2" name="Effect">&quot;Пульс&quot;</param>
+                </action>
+                <action id="-10" name="Add to" sid="171210581240681" type="System">
+                    <param id="0" name="Variable">effect</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="636094544874121">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="361312695278684" type="System">
+                    <param id="0" name="Variable">BossHP</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="912848583774656" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Тревога" sid="845309553846369" type="Browser">
+                    <param id="0" name="Сообщение">&quot;ты выиграл, теперь закрывай эту хуйню&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
